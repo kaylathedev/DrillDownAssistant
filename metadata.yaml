@@ -1,0 +1,328 @@
+research:
+  High Tech: [40 Machine Frame, 60 Steel Wire]
+
+machines:
+
+  # Transport
+
+  Conveyor:
+    build: [1 Stone]
+  Conveyor bridge:
+    build: [4 Stone, 2 Scaffolding]
+  Brick Channel:
+    build: [2 Brick]
+  Copper tube:
+    build: [2 Copper Tube]
+  Steel tube:
+    build: [4 Steel Tube]
+  Copper cable:
+    build: [1 Copper Wire]
+  Electric Conveyor:
+    build: [4 Copper Wire, 1 Steel Plate]
+  Electric Conveyor Inlet:
+    build: [4 Copper Wire, 1 Steel Plate, 1 Rotor]
+
+
+  # Logistics
+
+  Funnel:
+    build: [8 Stone, 8 Wood]
+  Filter:
+    build: [2 Wood, 2 Iron Ingot]
+  Distributor:
+    build: [2 Stone Brick, 2 Tin Ingot]
+  Valve:
+    build: [8 Steel Ingot, 4 Steel Tube]
+  Vacuum pump:
+    build: [20 Steel Plate, 10 Steel Tube, 1 Dynamo]
+    recipes:
+      - { time: 0.1, in: [600 J/s, 1 L Fluid], out: 1 L Fluid }
+  Item lift:
+    build: [4 Stone Brick, 10 Steel Ingot]
+  Tube shaft:
+    build: [10 Steel Ingot, 8 Steel Tube]
+  Cable shaft:
+    build: [8 Brick, 24 Steel Cable]
+    store: 200 kJ
+  High power cable shaft:
+    build: [50 Brick, 35 Steel Plate, 100 Steel Cable]
+    store: 200 kJ
+
+  # Storage
+
+  Small storage:
+    build: [16 Stone, 2 Stone Brick, 8 Scaffolding]
+    store: 200 Items
+  Barrel:
+    build: [5 Scaffolding, 24 Wood plank]
+    store: 350 Item
+  Warehouse:
+    build: [50 Stone Brick, 50 Scaffolding, 100 Wood plank]
+    store: 5000 Items
+  Tank:
+    build: [5 Scaffolding, 40 Copper Plate, 2 Copper Tube]
+    store: 20 L Fluid
+  Silo:
+    build: [10 Steel Ingot, 250 Steel Plate, 8 Steel Tube]
+    store: 8000 L Fluid
+  Capacitor:
+    build: [180 Brick, 30 Steel Plate, 40 Battery, 30 Steel Cable]
+    store: 20 MJ
+
+  # Raw resources
+
+  Mine:
+    build: [10 Stone, 2 Scaffolding]
+    recipes:
+      - { time: 12, out: [2 Stone] }
+      - { time:  5, out: [1 Dirt] }
+      - { time: 18, out: [2 Clay] }
+      - { time: 30, out: [1 Coal Ore] }
+      - { time: 30, out: [1 Iron Ore] }
+      - { time: 30, out: [1 Copper Ore] }
+      - { time: 30, out: [1 Tin Ore] }
+  Lumberjack:
+    build: [8 Stone, 3 Iron Ingot]
+    recipes:
+      - {time: 30, out: [1 Wood] }
+  Carpenter:
+    build: [15 Stone, 5 Wood, 6 Iron Ingot]
+    recipes:
+      - { time: 12, in: [1 Wood], out: [1 Scaffolding] }
+  Stone Mason:
+    build: [5 Stone, 15 Wood, 15 Scaffolding, 10 Iron Ingot]
+    recipes:
+      - { time: 15, in: [1 Stone], out: [1 Stone Brick, 1 Stone Gravel] }
+  Saw Mill:
+    build: [10 Stone Brick, 25 Steel Ingot]
+    recipes:
+      - { time: 8, in: [1 Wood], out: [2 Scaffolding] }
+
+  # Ore processing
+
+  Kiln:
+    build: [10 Stone, 10 Dirt]
+    recipes:
+      - { time: 20, in: [2 Coal Ore, 8 Clay], out: [3 Brick] }
+      - { time: 20, in: [2 Charcoal, 8 Clay], out: [3 Brick] }
+      - { time: 32, in: [6 Coal Ore, 7 Sand], out: [1 Glass] }
+      - { time: 32, in: [6 Charcoal, 7 Sand], out: [1 Glass] }
+  Furnace:
+    build: [15 Stone, 10 Brick]
+    recipes:
+      - { time: 7.5, in: [1 Coal Ore, 1   Iron Ore], out: [1 L Molten Iron] }
+      - { time: 7.5, in: [1 Coal Ore, 1 Copper Ore], out: [1 L Molten Copper] }
+      - { time: 7.5, in: [1 Coal Ore, 1    Tin Ore], out: [1 L Molten Tin] }
+
+      - { time: 7.5, in: [1 Charcoal, 1   Iron Ore], out: [1 L Molten Iron] }
+      - { time: 7.5, in: [1 Charcoal, 1 Copper Ore], out: [1 L Molten Copper] }
+      - { time: 7.5, in: [1 Charcoal, 1    Tin Ore], out: [1 L Molten Tin] }
+
+      - { time: 7.5, in: [1 Coal Ore, 1   Iron Gravel], out: [0.75 L Molten Iron] }
+      - { time: 7.5, in: [1 Coal Ore, 1 Copper Gravel], out: [0.75 L Molten Copper] }
+      - { time: 7.5, in: [1 Coal Ore, 1    Tin Gravel], out: [0.75 L Molten Tin] }
+
+      - { time: 7.5, in: [1 Charcoal, 1   Iron Gravel], out: [0.75 L Molten Iron] }
+      - { time: 7.5, in: [1 Charcoal, 1 Copper Gravel], out: [0.75 L Molten Copper] }
+      - { time: 7.5, in: [1 Charcoal, 1    Tin Gravel], out: [0.75 L Molten Tin] }
+
+      - { time: 7.5, in: [1 Coal Ore, 1   Iron Dust], out: [0.4 L Molten Iron] }
+      - { time: 7.5, in: [1 Coal Ore, 1 Copper Dust], out: [0.4 L Molten Copper] }
+      - { time: 7.5, in: [1 Coal Ore, 1    Tin Dust], out: [0.4 L Molten Tin] }
+      - { time: 7.5, in: [1 Coal Ore, 1    Gold Dust], out: [0.4 L Molten Gold] }
+
+      - { time: 7.5, in: [1 Charcoal, 1   Iron Dust], out: [0.4 L Molten Iron] }
+      - { time: 7.5, in: [1 Charcoal, 1 Copper Dust], out: [0.4 L Molten Copper] }
+      - { time: 7.5, in: [1 Charcoal, 1    Tin Dust], out: [0.4 L Molten Tin] }
+      - { time: 7.5, in: [1 Charcoal, 1    Gold Dust], out: [0.4 L Molten Gold] }
+  Ingot mold:
+    build: [30 Stone]
+    recipes:
+      - { time: 30, in: [1 L Molten Iron], out: [1 Iron Ingot] }
+      - { time: 30, in: [1 L Molten Copper], out: [1 Copper Ingot] }
+      - { time: 30, in: [1 L Molten Tin], out: [1 Tin Ingot] }
+      - { time: 30, in: [1 L Molten Steel], out: [1 Steel Ingot] }
+      - { time: 30, in: [1 L Molten Gold], out: [1 Gold Ingot] }
+  Rock Crusher:
+    build: [15 Stone, 5 Scaffolding, 15 Steel Ingot]
+    recipes:
+      - { time: 8, in: [1 Iron Ore], out: [2 Iron Gravel] }
+      - { time: 8, in: [1 Copper Ore], out: [2 Copper Gravel] }
+      - { time: 8, in: [1 Tin Ore], out: [2 Tin Gravel] }
+  Charcoal mound:
+    build: [25 Wood, 40 Dirt]
+    recipes: 
+      - { time: 240, in: [5 Wood, 30 Dirt], out: [24 Charcoal] }
+  Ball Mill:
+    build: [10 Scaffolding, 6 Iron Ingot, 10 Iron Plate]
+    recipes:
+      - { time: 10, in: [1 Stone Gravel], out: [2 Sand] }
+      - { time: 15, in: [1 Iron Gravel], out: [3 Iron Dust] }
+      - { time: 15, in: [1 Copper Gravel], out: [3 Copper Dust] }
+      - { time: 15, in: [1 Tin Gravel], out: [3 Tin Dust] }
+      - { time:  8, in: [1 Sand], out: [2 Stone Dust] }
+      - { time: 12, in: [1 Coal Ore], out: [3 Coal Dust] }
+  Blast Furnace:
+    build: [30 Stone Brick, 10 Brick, 10 Iron Ingot]
+    recipes:
+      - { time: 16, in: [3 Iron Ingot, 9 Coal Ore], out: [2.2 L Molten Steel] }
+      - { time: 16, in: [3 Iron Ingot, 9 Charcoal], out: [2.2 L Molten Steel] }
+      - { time: 23, in: [10 Silicon dust, 9 Coal Ore], out: [0.8 L Molten silicon] }
+      - { time: 23, in: [10 Silicon dust, 9 Charcoal], out: [0.8 L Molten silicon] }
+  Crucible:
+    build: [100 Brick, 75 Steel Ingot, 80 Bronze Plate]
+    recipes:
+      - { time: 90, in: [6 L Molten silicon], out: [70 Silicon wafer] }
+
+  # Metalworking
+
+  Rolling Machine:
+    build: [10 Stone Brick, 10 Scaffolding, 20 Steel Ingot]
+    recipes:
+      - { time: 20, in: [1 Iron Ingot], out: [1 Iron Plate] }
+      - { time: 20, in: [1 Copper Ingot], out: [1 Copper Plate] }
+      - { time: 20, in: [1 Tin Ingot], out: [1 Tin Plate] }
+      - { time: 20, in: [1 Steel Ingot], out: [1 Steel Plate] }
+      - { time: 20, in: [1 Bronze Ingot], out: [1 Bronze Plate] }
+  Tube bender:
+    build: [40 Brick, 20 Iron Ingot, 20 Steel Ingot]
+    recipes:
+      - { time: 12, in: [1 Copper Plate], out: [1 Copper tube] }
+      - { time: 20, in: [2 Steel Plate], out: [1 Steel Tube] }
+  Wire drawer:
+    build: [7 Stone Brick, 5 Scaffolding, 10 Steel Ingot]
+    recipes:
+      - { time: 60, in: [1 Steel Ingot], out: [8 Steel Wire] }
+      - { time: 60, in: [1 Copper Ingot], out: [8 Copper Wire] }
+      - { time: 60, in: [1 Tin Ingot], out: [8 Tin Wire] }
+      - { time: 60, in: [1 Gold Ingot], out: [8 Gold Wire] }
+  Polarizer:
+    build: [20 Stone Brick, 30 Iron Ingot, 10 Steel Plate]
+    recipes:
+      - { time: 17, in: [2 Iron Ingot], out: [1 Magnet] }
+  Arc Welder:
+    build: [90 Stone Brick, 80 Steel Wire, 100 Steel Plate, 100 Bronze Plate]
+    recipes:
+      - { time: 8, in: [30 kJ/s, 20 Steel Plate, 40 Copper Wire], out: [1 Machine Frame] }
+
+  # Miscellaneous
+
+  Science Lab:
+    build: [10 Stone Brick, 10 Scaffolding]
+  Mixer:
+    build: [10 Brick, 2 Iron Ingot, 4 Steel Plate]
+    recipes:
+      - { time: 3, in: [3 Sand, 4 Clay], out: [2 Cement] }
+      - { time: 5, in: [2 Cement, 5 Stone Dust], out: [2 Concrete powder] }
+      - { time: 6, in: [12 Copper Dust, 4 Tin Dust], out: [4 Bronze Dust] }
+  Shaft Drill:
+    build: [50 Stone Brick, 15 Steel Ingot, 30 Steel Plate]
+    recipes:
+      - { time: 300, in: [75 L Water, 180 Steel Ingot, 120 Concrete powder], out: [1 Level] }
+  Air Purifier:
+    build: [8 Stone Brick, 30 Scaffolding, 25 Steel Plate]
+    recipes:
+      - { time: 10, out: [1 Stone Dust, 1 BoxOfCleanAir] }
+  Booster:
+    build: [80 Glass, 150 Bronze Plate, 5 Dynamo, 20 Battery, 1 Advanced Machine Frame]
+    boosts:
+      { Stone: 0.001 }
+
+  # Liquids
+
+  Ground Water Pump:
+    build: [5 Steel Plate, 9 Copper tube]
+    recipes:
+      - { time: 5, out: [0.5 L Water] }
+  Water boiler:
+    build: [35 Copper Plate, 2 Copper tube]
+    recipes:
+      - { time: 1, in: [3 L Water, 0.11111 Coal Ore], out: [5 L Pressurized Steam] }
+      - { time: 1, in: [3 L Water, 0.11111 Charcoal], out: [5 L Pressurized Steam] }
+  Condenser:
+    build: [50 Scaffolding, 25 Glass, 10 Steel Plate, 8 Copper tube]
+    recipes:
+      - { time: 2, in: [2 L Steam], out: [0.25 L Water] }
+  Oil Well:
+    build: [80 Steel Wire, 10 Steel Tube, 4 Dynamo, 4 Machine Frame]
+    recipes:
+      - { time: 25, in: [12 kJ/s], out: [12 L Crude Oil] }
+  Refinery:
+    build: [250 Stone Brick, 250 Steel Wire, 150 Copper Plate, 250 Steel Plate, 100 Copper tube, 60 Steel Tube, 15 Machine Frame]
+    recipes:
+      - { time: 2, in: [36 kJ/s, 10 L Crude Oil], out: [7.5 L Preprocessed crude oil] }
+      - { time: 2, in: [36 kJ/s, 24 L Distilled oil], out: [18 L Refined oil] }
+  Distillation column:
+    build: [80 Brick, 35 Bronze Plate, 15 Steel Tube, 50 Carbon block, 8 Machine Frame]
+    recipes:
+      - { time: 2, in: [5 kJ/s, 1 L Preprocessed crude oil], out: [0.6 L Distilled oil, 0.2 L Lubricant, 0.05 L Natural Gas] }
+
+  # Electricity
+
+  Substation:
+    build: [8 Brick, 48 Copper Wire, 10 Bronze Plate]
+    store: 200 kJ
+  Transmission tower:
+    build: [20 Brick, 15 Tin Plate, 25 Steel Plate, 60 Steel Cable]
+  Anchor portal:
+    build: [80 Brick, 350 Tin Plate, 30 Battery, 100 Steel Cable]
+  Water Wheel:
+    build: [20 Wood, 8 Scaffolding, 10 Wood plank, 2 Steel Ingot, 1 Dynamo]
+    recipes:
+      - { time: 1, in: [0.5 L Water], out: [1.2 kJ/s, 0.35 L Water] }
+  Steam Turbine:
+    build: [80 Steel Plate, 20 Copper tube, 2 Dynamo, 2 Rotor]
+    recipes:
+      - { time: 1, in: [1 L Pressurized Steam], out: [18 kJ/s, 2.5 L Steam] }
+  Solar panel core:
+    build: [50 Glass, 100 Copper Wire, 10 Silicon wafer, 5 Battery]
+    store: 6 kJ/s
+  Solar panel:
+    build: [50 Glass, 30 Copper Wire, 10 Silicon wafer]
+    power_out: 6000
+  Gas turbine:
+    build: [200 Bronze Plate, 150 Steel Tube, 10 Turbine, 10 Advanced Machine Frame, 180 Steel Cable]
+    # Note: This actually requires 1.5 L Lubricant per second.
+    recipes:
+      - { time: 1, in: [1 L Natural Gas, 1.5 L Lubricant], out: [500 kJ/s] }
+
+  # High tech
+
+  Assembler:
+    build: [35 Stone Brick, 60 Scaffolding, 85 Wood plank, 80 Copper Ingot, 50 Steel Ingot]
+    recipes:
+      - { time: 28, in: [40 Copper Wire, 3 Magnet, 4 Steel Wire, 2 Carbon block], out: [1 Dynamo] }
+      - { time: 25, power_in: 1800, in: [20 Bronze Plate, 40 Iron Plate, 25 Steel Ingot, 30 Steel Plate], out: [1 Rotor] }
+      - { time: 13, power_in: 12000, in: [8 Bronze Plate, 8 Iron Plate, 24 Sulfur dust, 1 Plastic casing], out: [1 Battery] }
+      - { time: 45, power_in: 72000, in: [4 Rotor, 8 Dynamo, 25 Steel Tube, 50 Steel Plate, 10 L Lubricant], out: [1 Turbine] }
+  Compactor:
+    build: [25 Stone Brick, 10 Steel Plate]
+    recipes:
+      - { time: 10, in: [8 Coal Dust], out: [1 Coal chunk] }
+      - { time: 10, in: [4 Coal chunk], out: [1 Carbon block] }
+      - { time: 490, in: [120 Quartz dust], out: [1 Synthetic quartz crystal] }
+  Polymerizer:
+    build: [90 Glass, 90 Tin Plate, 50 Steel Tube, 25 Dynamo, 20 Machine Frame]
+    recipes:
+      - { time: 70, power_in: 40000, in: [10 L Refined oil], out: [80 Plastic beads] }
+  Centrifuge:
+    build: [200 Steel Ingot, 200 Bronze Ingot, 200 Magnet, 60 Carbon block, 10 Dynamo, 25 Machine Frame]
+    recipes:
+      - { time: 100, power_in: 120000, in: [150 Iron Dust, 25 L Lubricant], out: [1 Titanium Dust, 100 Stone Dust] } # 0.25 L/s Lubricant
+      - { time: 115, power_in: 174000, in: [175 Stone Dust, 23 L Lubricant], out: [85 Quartz dust, 60 Pyrite dust] } # 0.2 L/s Lubricant
+      - { time:  80, power_in:  90000, in: [15 Pyrite dust, 8 L Lubricant], out: [5 Iron Dust, 10 Sulfur dust] } # 0.1 L/s Lubricant
+      - { time: 185, power_in: 510000, in: [570 Quartz dust, 92.5 L Lubricant], out: [1 Gold Dust, 210 Silicon Dust] } # 0.5 L/s Lubricant
+      -
+        in: [174 kJ/s, 175 Stone Dust, 0.2 Lubricant/s]
+        time: 115
+        out: [85 Quartz dust, 60 Pyrite dust]
+  Injection molder:
+    build: [120 Stone Brick, 150 Copper Ingot, 100 Steel Ingot, 16 Dynamo, 40 Machine Frame, 2 Advanced Machine Frame]
+    recipes:
+      - { time:  5, power_in: 30000, in: [30 Plastic beads, 4 Steel Wire], out: [1 Steel Cable] }
+      - { time: 34, power_in: 48000, in: [170 Plastic beads], out: [1 Plastic casing] }
+  Device fabricator:
+    build: [650 Glass, 500 Bronze Plate, 250 Dynamo, 400 Machine Frame, 100 Advanced Machine Frame, 300 Steel Cable]
+    recipes:
+      - { time: 860, power_in: 3600000, in: [2 Plastic casing, 80 Gold Wire, 5 Silicon wafer, 50 Tin Wire, 5 Synthetic quartz crystal], out: [1 Chip] }
+
