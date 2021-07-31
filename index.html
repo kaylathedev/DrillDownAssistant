@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Drill Down, Guide</title>
+  <link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="panel menu">
+      <button class="menu-option" id="menu-option-buildings">Buildings</button>
+      <button class="menu-option" id="menu-option-research">Research</button>
+      <button class="menu-option" id="menu-option-items">Items</button>
+      <button class="menu-option" id="menu-option-guide">Guide</button>
+    </div>
+    <div class="panels"></div>
+  </div>
+  <script type="text/javascript" src="scripts/yaml.js"></script>
+  <script type="text/javascript" src="scripts/drilldown.js"></script>
+  <script type="text/javascript" src="rawdata/metadata.yaml"></script>
+  <script type="text/javascript">
+    HTMLElement.prototype.find = function(search) {
+      return this.querySelector(search);
+    };
+    HTMLElement.prototype.findAll = function(search) {
+      return this.querySelectorAll(search);
+    };
+    HTMLElement.prototype.create = function(type) {
+      if (!type) type = 'div';
+      return this.appendChild(document.createElement(type));
+    };
+    HTMLElement.prototype.html = function(html) {
+      this.innerHTML = html;
+      return this;
+    };
+    HTMLElement.prototype.classname = function(classname) {
+      this.classList.add(classname);
+      return this;
+    };
+
+    function parseYaml(data) {}
+
+    const container = document.getElementById('container');
+    let game;
+
+    function start() {
+      let obj = YAML.parse(yaml);
+      game = Game.Parse(obj);
+      initalizeMenu();
+      loadBuildings();
+    }
+
+    function initalizeMenu() {
+      container.find('#menu-option-buildings').onclick = function() {
+        loadBuildings();
+      };
+      container.find('#menu-option-research').onclick = function() {
+        loadResearch();
+      };
+      container.find('#menu-option-items').onclick = function() {
+        loadItems();
+      };
+      container.find('#menu-option-guide').onclick = function() {
+        loadGuide();
+      };
+    }
+
+    function loadBuildings() {
+      const panels = container.find('.panels');
+      panels.innerHTML = '';
+      for (let i in game.buildings) {
+        let building = game.buildings[i];
+        if (building.recipes[0]) {
+          let panel = panels.create().classname('panel').classname('building');
+          panel.create().classname('building-name').html(building.name);
+          for (let j in building.recipes) {
+            let recipe = building.recipes[j];
+            let recipePanel = panel.create().classname('recipe');
+            let html = `
+            <br>Recipe ${parseInt(j)+1}<br>
+            `
+            if (recipe.time) {
+              html += `Time: ${recipe.time}s<br>`;
+            }
+
+            if (recipe.hasInputs()) {
+              html += `In: `;
+              let rates = recipe.getInputsPerMinute();
+              for (let k in recipe.in) {
+                if (k !== '0') html += ', ';
+                html += recipe.in[k];
+                html += ' (' +
+                  rates[recipe.in[k].name].toFixed(2) +
+                  '/m)';
+              }
+              html += '<br>';
+            }
+
+            if (recipe.hasOutputs()) {
+              html += `Out: `;
+              let rates = recipe.getOutputsPerMinute();
+              for (let k in recipe.out) {
+                if (k !== '0') html += ', ';
+                html += recipe.out[k];
+                html += ' (' +
+                  rates[recipe.out[k].name].toFixed(2) +
+                  '/m)';
+              }
+              html += '<br>';
+            }
+            console.log(recipe);
+            recipePanel.html(html);
+          }
+        }
+      }
+    }
+
+    function loadResearch() {
+      const panels = container.find('.panels');
+      panels.innerHTML = '';
+      panels.create().classname('panel');
+
+    }
+
+    function loadItems() {
+      const panels = container.find('.panels');
+      panels.innerHTML = '';
+      for (let name in game.items) {
+        let itemPanel = panels.create().classname('panel').classname('item');
+        itemPanel.create().classname('item-name').html(name);
+        let buildings = game.getAllProducersOfItem(name);
+        buildings.forEach(building => {
+          const recipe = building.getRecipeThatProducesItem(name);
+          const rate = (recipe.getOutputsPerMinute())[name];
+          let html = 'from ' + building.name;
+          html += ' (' + rate.toFixed(2) + '/m)';
+          itemPanel.create().classname('item-producer').html(html);
+        });
+      }
+    }
+
+    function loadGuide() {
+      const panels = container.find('.panels');
+      panels.innerHTML = '';
+      panels.create().classname('panel');
+
+    }
+
+    start();
+  </script>
+</body>
+
+</html>

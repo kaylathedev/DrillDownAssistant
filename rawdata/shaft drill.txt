@@ -1,0 +1,56 @@
+ShaftDrill
+time:   300s
+output: 1 level
+input:  180 steel ingot (36/m), 120 concrete powder (24/m)
+requires: , 1 Mixer[concrete powder]
+requires: 
+requires: 1 Mixer[cement], 4 BallMill[stone_dust]
+          7.5 BallMill[sand], 12 Mine[clay]
+          3 RockCrusher[stone_gravel]
+          2.25 Mine[stone]
+
+Mixer[concrete powder]
+time:   5s
+output: 2 concrete powder (24/m)
+input:  2 cement (24/m), 5 stone_dust (60/m)
+requires: 1 Mixer[cement], 4 BallMill[stone_dust]
+          7.5 BallMill[sand], 12 Mine[clay]
+          3 RockCrusher[stone_gravel]
+          2.25 Mine[stone]
+
+Mixer[cement]
+time:   3s
+output: 2 cement (36/m)
+input:  3 sand (60/m), 4 clay (80/m)
+requires: 5 BallMill[sand], 12 Mine[clay]
+          2 RockCrusher[stone_gravel]
+          1.5 Mine[stone]
+
+BallMill[stone_dust]
+time:   8s
+output: 2 stone_dust (15/m)
+input:  1 sand (7.5/m)
+requires: 0.625 BallMill[sand]
+          0.25 RockCrusher[stone_gravel]
+          0.1875 Mine[stone]
+
+BallMill[sand]
+time:   10s
+output: 2 sand (12/m)
+input:  1 stone_gravel (6/m)
+requires: 0.4 RockCrusher[stone_gravel]
+          0.3 Mine[stone]
+
+RockCrusher[stone_gravel]
+time:   8s
+output: 2 stone_gravel (15/m)
+input:  1 stone (7.5/m)
+requires: 0.75 Mine[stone]
+
+Mine[stone]
+time:   12s
+output: 2 stone (10/m)
+
+Mine[clay]
+time:   18s
+output: 2 clay (6.666.../m)

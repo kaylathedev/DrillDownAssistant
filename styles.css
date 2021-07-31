@@ -1,0 +1,63 @@
+.sprite {
+  width: 32px;
+  height: 32px;
+  border: 1px solid black;
+  background: silver;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.panel {
+  border: 1px solid #a00;
+  background: #fee;
+  margin: 3px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.panel.menu {
+  border: 1px solid #0a0;
+  background: #afa;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 12px;
+}
+
+.menu-option {
+  padding: 5px;
+}
+
+.panels {
+  border: none;
+  background: none;
+  display: flex;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+/* Building Panel */
+
+.panel.building .building-name {
+  text-align: center;
+}
+
+.building .recipe {
+  font-size: 0.8em;
+}
+
+/* Item Panel */
+
+.item .item-name {
+  text-align: center;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.item .item-producer {
+  font-size: 0.8em;
+}
